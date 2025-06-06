@@ -21,20 +21,21 @@
     let resultado = '';
 
     if (centenas > 0) {
-        resultado += centenas + ' centena';
-        if (centenas > 1) resultado += 's';
-        if (dezenas > 0 || unidades > 0) resultado += ' e ';
+        resultado = resultado + centenas + ' centena';
+        if (centenas > 1) resultado = resultado + 's';
+        if (dezenas > 0) resultado = resultado + ' e ';
+        if (dezenas === 0 && unidades > 0) resultado = resultado + ' e ';
     }
 
     if (dezenas > 0) {
-        resultado += dezenas + ' dezena';
-        if (dezenas > 1) resultado += 's';
-        if (unidades > 0) resultado += ' e ';
+        resultado = resultado + dezenas + ' dezena';
+        if (dezenas > 1) resultado = resultado + 's';
+        if (unidades > 0) resultado = resultado + ' e ';
     }
 
     if (unidades > 0) {
-        resultado += unidades + ' unidade';
-        if (unidades > 1) resultado += 's';
+        resultado = resultado + unidades + ' unidade';
+        if (unidades > 1) resultado = resultado + 's';
     }
     
     //SAÍDA
