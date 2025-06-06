@@ -1,0 +1,39 @@
+<script>
+    /*
+    PROBLEMA: CAIXA ELETRÔNICO
+    Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas existentes na máquina.
+
+    Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+    Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+    */
+
+    //ENTRADA
+    let valor = Number(prompt(`Qual o valor do saque? (Entre R$ 10 e R$ 600)`))
+
+    //PROCESSAMENTO
+    if (valor >= 10 && valor <= 600) {
+        let notas100 = Math.floor(valor / 100)
+        let resto = valor % 100
+
+        let notas50 = Math.floor(resto / 50)
+        resto = resto % 50
+
+        let notas10 = Math.floor(resto / 10)
+        resto = resto % 10
+
+        let notas5 = Math.floor(resto / 5)
+        resto = resto % 5
+
+        let notas1 = resto
+
+        //SAÍDA
+        document.write(`Para sacar R$ ${valor}, serão fornecidas:<br>`)
+        if (notas100 > 0) document.write(`${notas100} nota(s) de R$ 100<br>`)
+        if (notas50 > 0) document.write(`${notas50} nota(s) de R$ 50<br>`)
+        if (notas10 > 0) document.write(`${notas10} nota(s) de R$ 10<br>`)
+        if (notas5 > 0) document.write(`${notas5} nota(s) de R$ 5<br>`)
+        if (notas1 > 0) document.write(`${notas1} nota(s) de R$ 1<br>`)
+    } else {
+        document.write(`Valor inválido para saque. O valor deve estar entre R$ 10 e R$ 600.`)
+    }
+</script>
